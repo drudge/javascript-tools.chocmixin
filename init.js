@@ -107,6 +107,32 @@ Hooks.addMenuItem('Actions/JavaScript/Pretty Format JavaScript', 'control-shift-
   }
 });
 
+Hooks.addMenuItem('Actions/JavaScript/JSONify', 'command-control-shift-s', function() {
+  var type = Document.current().rootScope();
+
+  if (type === 'js.source') {
+    Recipe.run(function(recipe) {
+      var sel = (!recipe.selection.length)? new Range(0, recipe.length) : recipe.selection
+        , output = ''
+        , text = recipe.textInRange(sel);
+
+      var context = {};
+      
+      try {
+        //hackity hack, don't talk back
+        vm.runInNewContext('var output = ' + text, context, 'selection on line');
+        if (context.output) output = JSON.stringify(context.output); 
+      } catch (e) {
+        output = null;
+      } finally {
+        if (output) {
+          recipe.replaceTextInRange(sel, output);
+        }
+      }
+    });
+  }
+})
+
 Hooks.addMenuItem('Actions/JavaScript/Evaluate JavaScript to Document', 'control-shift-r', function() {
   Recipe.run(function(recipe) {
     var sel = recipe.selection;
