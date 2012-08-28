@@ -1,6 +1,6 @@
 # JavaScript Tools mixin for Chocolat
 
-This mixin adds useful actions when working in JavaScript files to Chocolat.
+This mixin adds useful actions when working in JavaScript files to [Chocolat](http://chocolatapp.com).
 
 ## Requirements
 
