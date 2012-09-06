@@ -1,0 +1,21 @@
+{
+  "name": "javascript-tools",
+  "version": "1.0.0",
+  "description": "Various tools to make coding Javascript easier in Chocolat",
+  "main": "init.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drudge/javascript-tools.chocmixin.git"
+  },
+  "keywords": [
+    "javascript",
+    "tools",
+    "array",
+    "string",
+    "eval",
+    "js",
+    "util"
+  ],
+  "author": "Nicholas Penree <nick@penree.com>",
+  "license": "MIT"
+}
